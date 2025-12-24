@@ -112,7 +112,7 @@ export const translations = {
         bestSellers: 'Best Sellers',
         accessories: 'Accessories',
         sale: 'Sale',
-        rightsReserved: '© 2025 MODA Fashion Store. All rights reserved.',
+        rightsReserved: '© 2025 StyleMart. All rights reserved.',
 
         // Common
         loading: 'Loading...',
@@ -230,7 +230,7 @@ export const translations = {
         bestSellers: 'Terlaris',
         accessories: 'Aksesoris',
         sale: 'Obral',
-        rightsReserved: '© 2025 Toko Mode MODA. Hak cipta dilindungi undang-undang.',
+        rightsReserved: '© 2025 StyleMart. Hak cipta dilindungi undang-undang.',
 
         // Common
         loading: 'Memuat...',

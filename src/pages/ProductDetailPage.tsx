@@ -9,9 +9,11 @@ import { MessageCircle, ArrowLeft, ChevronLeft, ChevronRight, CreditCard, AlertC
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { useLanguage } from '../context/LanguageContext';
+import { useToast } from '../context/ToastContext';
 
 const ProductDetailPage = () => {
     const { t } = useLanguage();
+    const { showToast } = useToast();
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const [product, setProduct] = useState<Product | null>(null);
@@ -27,9 +29,8 @@ const ProductDetailPage = () => {
 
     // Payment Info (could be from env or config)
     const paymentInfo = {
-        gopay: '081234567890',
-        dana: '081234567890',
-        qris: 'QRIS_CODE_HERE' //Could be image URL
+        gopay: '+62 813-8909-0654',
+        dana: '+62 813-8909-0654'
     };
 
     useEffect(() => {
@@ -67,7 +68,7 @@ const ProductDetailPage = () => {
             const whatsappUrl = await checkout([{ productId: product.id, quantity: quantity }]);
             window.open(whatsappUrl, '_blank');
         } catch (error) {
-            alert(t('error'));
+            showToast(t('error'), 'error');
         }
     };
 
@@ -377,15 +378,6 @@ const ProductDetailPage = () => {
                                                 <Copy size={18} className="text-gray-500" />
                                             )}
                                         </button>
-                                    </div>
-                                </div>
-
-                                {/* QRIS */}
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">QRIS</label>
-                                    <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg text-center text-sm text-gray-600 dark:text-gray-400">
-                                        <p>{paymentInfo.qris}</p>
-                                        <p className="text-xs mt-1">{t('contactAdminForQris')}</p>
                                     </div>
                                 </div>
 

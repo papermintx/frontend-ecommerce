@@ -1,5 +1,5 @@
 import { Instagram, Facebook, Twitter } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     <div className="col-span-1 md:col-span-2">
-                        <h2 className="text-xl font-serif font-bold mb-3">MODA.</h2>
+                        <h2 className="text-xl font-serif font-bold mb-3">StyleMart</h2>
                         <p className="text-gray-600 dark:text-gray-400 max-w-sm mb-4 text-xs transition-colors">
                             {t('elevatingStyle')}
                         </p>
@@ -43,6 +43,7 @@ const Footer = () => {
                             <li><a href="#" className="hover:text-black dark:hover:text-white transition-colors">{t('faqs')}</a></li>
                             <li><a href="#" className="hover:text-black dark:hover:text-white transition-colors">{t('shipping')}</a></li>
                             <li><a href="#" className="hover:text-black dark:hover:text-white transition-colors">{t('returns')}</a></li>
+                            <li><Link to="/login" className="hover:text-black dark:hover:text-white transition-colors">{t('admin')}</Link></li>
                         </ul>
                     </div>
                 </div>

@@ -9,9 +9,11 @@ import { useNavigate } from 'react-router-dom';
 import { LogOut, Plus } from 'lucide-react';
 
 import { useLanguage } from '../context/LanguageContext';
+import { useToast } from '../context/ToastContext';
 
 const AdminDashboard = () => {
     const { t } = useLanguage();
+    const { showToast } = useToast();
     const [products, setProducts] = useState<Product[]>([]);
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [editingProduct, setEditingProduct] = useState<Product | null>(null);
@@ -40,7 +42,7 @@ const AdminDashboard = () => {
                 // Refresh list
                 await fetchProducts();
             } catch (error) {
-                alert("Failed to delete product.");
+                showToast("Failed to delete product.", 'error');
             }
         }
     };

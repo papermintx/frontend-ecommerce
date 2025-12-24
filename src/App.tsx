@@ -3,6 +3,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { ToastProvider } from './context/ToastContext';
 import LandingPage from './pages/LandingPage';
 import MarketplacePage from './pages/MarketplacePage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -27,7 +28,8 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <BrowserRouter>
+        <ToastProvider>
+          <BrowserRouter>
           <ScrollToAnchor />
           <Routes>
             <Route path="/" element={<LandingPage />} />
@@ -46,6 +48,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
+        </ToastProvider>
       </LanguageProvider>
     </ThemeProvider>
   );

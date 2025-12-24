@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { createProduct, updateProduct, getCategories } from '../services/api';
 import { X, Upload } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useToast } from '../context/ToastContext';
 import type { Category, Product } from '../models';
 
 interface AdminProductFormProps {
@@ -12,6 +13,7 @@ interface AdminProductFormProps {
 
 const AdminProductForm = ({ onSuccess, onCancel, product }: AdminProductFormProps) => {
     const { t } = useLanguage();
+    const { showToast } = useToast();
     const isEditMode = !!product;
 
     const [name, setName] = useState(product?.name || '');
@@ -73,12 +75,12 @@ const AdminProductForm = ({ onSuccess, onCancel, product }: AdminProductFormProp
                 const response = await updateProduct(product.id, formData);
                 console.log('✅ Update response:', response);
                 console.log('🖼️ New imageUrl:', response.imageUrl);
-                alert(t('productUpdatedSuccess'));
+                showToast(t('productUpdatedSuccess'), 'success');
             } else {
                 console.log('➕ Creating new product');
                 const response = await createProduct(formData);
                 console.log('✅ Create response:', response);
-                alert(t('productCreatedSuccess'));
+                showToast(t('productCreatedSuccess'), 'success');
             }
             onSuccess();
         } catch (error: any) {
@@ -88,7 +90,7 @@ const AdminProductForm = ({ onSuccess, onCancel, product }: AdminProductFormProp
             console.error('❌ Error Headers:', error.response?.headers);
 
             const errorMessage = error.response?.data?.message || error.message || 'Unknown error';
-            alert(`${isEditMode ? t('productUpdateFail') : t('productCreateFail')}\n\nDetails: ${errorMessage}`);
+            showToast(`${isEditMode ? t('productUpdateFail') : t('productCreateFail')}: ${errorMessage}`, 'error');
         } finally {
             setLoading(false);
         }
@@ -96,6 +98,24 @@ const AdminProductForm = ({ onSuccess, onCancel, product }: AdminProductFormProp
 
     return (
         <div className="fixed inset-0 bg-black/50 dark:bg-black/80 flex items-center justify-center z-50 p-4 backdrop-blur-sm transition-colors">
+            {/* Loading Overlay */}
+            {loading && (
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-2xl flex flex-col items-center gap-4">
+                        <div className="relative">
+                            <div className="w-16 h-16 border-4 border-gray-200 dark:border-gray-700 rounded-full"></div>
+                            <div className="absolute top-0 left-0 w-16 h-16 border-4 border-black dark:border-white border-t-transparent rounded-full animate-spin"></div>
+                        </div>
+                        <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                            {isEditMode ? t('updating') : t('creating')}
+                        </p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            Please wait...
+                        </p>
+                    </div>
+                </div>
+            )}
+            
             <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl transition-colors">
                 <div className="p-6 border-b border-gray-100 dark:border-gray-700 flex justify-between items-center sticky top-0 bg-white dark:bg-gray-800 z-10 transition-colors">
                     <h2 className="text-2xl font-bold dark:text-white">
