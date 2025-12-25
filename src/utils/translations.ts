@@ -23,6 +23,9 @@ export const translations = {
         // Featured Collection (Legacy support if needed, or repurposed)
         featuredTitle: 'Featured Collection',
         newArrivals: 'New Arrivals',
+        latestProductsDesc: 'Discover our newest arrivals and trending styles.',
+        viewDetails: 'View Details',
+        viewAllProducts: 'View All Products',
 
         // Marketplace
         marketplaceTitle: 'Marketplace',
@@ -141,6 +144,9 @@ export const translations = {
         // Featured Collection
         featuredTitle: 'Koleksi Unggulan',
         newArrivals: 'Pendatang Baru',
+        latestProductsDesc: 'Temukan produk terbaru dan gaya yang sedang tren.',
+        viewDetails: 'Lihat Detail',
+        viewAllProducts: 'Lihat Semua Produk',
 
         // Marketplace
         marketplaceTitle: 'Pasar',

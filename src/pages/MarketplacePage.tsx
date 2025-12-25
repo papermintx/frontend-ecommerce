@@ -7,11 +7,9 @@ import { getProducts, getCategories, checkout } from '../services/api';
 import type { Product, Category } from '../models';
 
 import { useLanguage } from '../context/LanguageContext';
-import { useToast } from '../context/ToastContext';
 
 const MarketplacePage = () => {
     const { t } = useLanguage();
-    const { showToast } = useToast();
     const [products, setProducts] = useState<Product[]>([]);
     const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState(true);
