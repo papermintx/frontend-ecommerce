@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { Product, CheckoutItem, LoginResponse, Category } from '../models';
 
-const API_BASE_URL = 'http://47.129.234.167:5000/api';
+const API_BASE_URL = 'https://stylemarket.web.id/api';
 
 const api = axios.create({
     baseURL: API_BASE_URL,

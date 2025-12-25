@@ -3,7 +3,7 @@
 export const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&auto=format&fit=crop&q=80';
 
 // API Base URL - points to hosted backend server for image loading
-const BASE_URL = 'http://47.129.234.167:5000';
+const BASE_URL = 'https://stylemarket.web.id';
 
 export const getImageUrl = (path: string | undefined | null, cacheBust: boolean = true): string => {
     if (!path) return FALLBACK_IMAGE;
