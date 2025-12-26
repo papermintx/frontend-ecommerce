@@ -40,7 +40,7 @@ const Hero = () => {
                             </motion.span>
                         </div>
 
-                        <h1 className="text-5xl lg:text-6xl font-serif font-bold leading-[0.9] mb-6 text-gray-900 dark:text-white transition-colors">
+                        <h1 className="text-4xl lg:text-5xl font-serif font-bold leading-tight mb-6 text-gray-900 dark:text-white transition-colors">
                             <div className="overflow-hidden">
                                 <motion.div
                                     initial={{ y: "100%" }}
@@ -55,9 +55,9 @@ const Hero = () => {
                                     initial={{ y: "100%" }}
                                     animate={{ y: 0 }}
                                     transition={{ duration: 0.8, delay: 0.2, ease: "circOut" }}
-                                    className="flex items-center gap-4"
+                                    className="flex flex-wrap items-center gap-2 lg:gap-3"
                                 >
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-200 dark:to-gray-400 italic font-light">MODA.</span> Store
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-200 dark:to-gray-400 italic font-light">STYLEMARKET</span>
                                 </motion.div>
                             </div>
                         </h1>

@@ -57,7 +57,7 @@ const LoginPage = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black dark:focus:ring-white outline-none transition-all placeholder-gray-400"
-                                placeholder="admin@moda.com"
+                                placeholder="admin@stylemarket.com"
                                 required
                             />
                         </div>
