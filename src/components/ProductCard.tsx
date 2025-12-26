@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MessageCircle, Star } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import type { Product } from '../models';
 import { getImageUrl, FALLBACK_IMAGE } from '../utils/image';
@@ -39,10 +39,6 @@ const ProductCard = ({ product, onBuy, index = 0 }: ProductCardProps) => {
                     <MessageCircle size={16} />
                     {t('buyViaWhatsapp')}
                 </button>
-                <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1 shadow-sm">
-                    <Star size={12} className="fill-yellow-400 text-yellow-400" />
-                    4.8
-                </div>
             </div>
             <div className="flex justify-between items-start">
                 <div>
